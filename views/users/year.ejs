@@ -1,0 +1,55 @@
+<%- include("../partials/dashboardheader.ejs") %> 
+<%- include("../partials/dashboardcss.ejs") %> 
+<%- include("../partials/userdetailscss.ejs") %> 
+<%- include("../partials/usernavbar.ejs") %>
+
+<main class="main">
+  <div class="full-container">
+    <div class="header">
+      <div class="header-container">
+        <h1>Past Questions of <%= year %></h1>
+      </div>
+      <% if (typeof error !=="undefined" && error.length > 0) { %>
+        <p style="color: red"><%= error %></p>
+      <% } %> 
+      <% if (typeof success !== "undefined" && success.length > 0) { %>
+        <p style="color: green"><%= success %></p>
+      <% } %>
+    </div>
+    <div class="quiz-section" style="display: grid;
+      grid-template-columns: repeat(5, 2fr); /* Three quizzes in each row */
+      gap: 10px; margin-left: 45px;/* Adjust the gap between quizzes as needed */
+      justify-content: space-around;">
+      <% questions.map((question) => { %>
+        <div class="inner-container">
+          <div class="question-container">
+            <p>Question</p>
+            <textarea readonly><%= question.question %></textarea>
+          </div>
+
+          <div class="option-container">
+            <div class="first-option-container">
+              <p>Options</p>
+              <textarea readonly><%= question.options[0] %></textarea>
+              <textarea readonly><%= question.options[1] %></textarea>
+            </div>
+            <div class="second-option-container">
+              <textarea readonly><%= question.options[2] %></textarea>
+              <textarea readonly><%= question.options[3] %></textarea>
+            </div>
+          </div>
+
+          <div class="last-container">
+            <div class="correct-answer">
+              <p>Correct option</p>
+              <textarea readonly><%= question.correctOption %></textarea>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</main>
+
+<%- include("../partials/dashboardjs.ejs") %> 
+<%- include("../partials/footer.ejs") %>

@@ -1,0 +1,27 @@
+<%- include("../partials/dashboardheader.ejs") %> <%-
+include("../partials/dashboardcss.ejs") %> <%-
+include("../partials/admin/displayquizcss.ejs") %> <%-
+include("../partials/usernavbar.ejs") %>
+
+<main class="main">
+  <h4>Start on: <%= startTime %></h4> <br>
+
+<% const currentTime = new Date(); %>
+<% const currentHours = currentTime.getHours(); %>
+<% const currentMinutes = currentTime.getMinutes(); %>
+
+<% const time = String(startTime); %>
+<% const targetTime = time.split(':'); %>
+<% const targetHours = parseInt(targetTime[0]); %>
+<% const targetMinutes = parseInt(targetTime[1]); %>
+
+<% if ((currentHours === targetHours && currentMinutes === targetMinutes) || (currentHours >= targetHours && currentMinutes >= targetMinutes) || (currentHours >= targetHours && currentMinutes <= targetMinutes)) { %>
+  <button><a href="/users/displayquiz">Start Quiz</a></button>
+<% } else { %>
+  <h4>Try to refresh the page once if the start time is equal to your time</h4>
+<% } %>
+
+</main>  
+
+<%- include("../partials/dashboardjs.ejs") %> <%-
+include("../partials/footer.ejs") %>

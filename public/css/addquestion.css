@@ -1,0 +1,73 @@
+/* Add these styles to your existing CSS or create a new CSS file */
+
+.main {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.quiz-container {
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.quiz-header {
+  text-align: center;
+}
+
+.question-textarea,
+.option-textarea,
+.correct-option-container input {
+  width: 100%;
+  min-height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.option-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.first-option-container,
+.second-option-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio-button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.correct-option-container {
+  margin-bottom: 20px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,32 @@
+<%- include("../partials/loginheader.ejs") %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="card-container">
+  <div class="top-part">
+    <center><img class="logo_img" src="/img/GCIT_Logo.png"></center>
+  </div>
+  <div class="form-content">
+    <form method="POST" action="/" autocomplete="off">
+  
+      <!-- <h3>Login Here</h3> -->
+      <div>
+        <% if (typeof error !=="undefined" && error.length > 0) { %>
+          <p style="color: red"><%= error %></p>
+          <% } %> <% if (typeof success !== "undefined" && success.length > 0) { %>
+          <p style="color: green"><%= success %></p>
+          <% } %>
+    
+    
+        <label for="username">Email Address</label>
+        <input type="email" name="email" placeholder="Enter your email address" id="username" />
+    
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Enter your password" id="password" />
+    
+        <button type="submit">Login</button>
+        <div class="social">
+          <a href="/register">Create an account?</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<%- include("../partials/dashboardheader.ejs") %> <%-
+include("../partials/dashboardcss.ejs") %> 
+<%- include("../partials/admin/createquiz.ejs") %> 
+<%- include("../partials/navbar.ejs") %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<main class="main">
+    <div class="container">
+        <div class="heading">
+            <h3>Generate Quiz</h3>
+        </div>
+        <% if (typeof error !=="undefined" && error.length > 0) { %>
+            <p style="color: red"><%= error %></p>
+            <% } %> <% if (typeof success !== "undefined" && success.length > 0) { %>
+            <p style="color: green"><%= success %></p>
+        <% } %>
+
+        <form action="/admin/createquiz" method="post" autocomplete="off">
+            <div class="question-number">
+                <div class="total-question number">
+                    <label for="totalQuestion">Total Question</label>
+                    <input type="number" name="totalQuestion"/>
+                </div>
+    
+                <div class="total-question number">
+                    <label for="easy">Easy Number</label>
+                    <input type="number" name="totalEasyQuestion"/>
+                </div>
+    
+                <div class="total-question number">
+                    <label for="medium">Medium Number</label>
+                    <input type="number" name="totalMediumQuestion"/>
+                </div>
+    
+                <div class="total-question number">
+                    <label for="hard">Hard Number</label>
+                    <input type="number" name="totalHardQuestion"/>
+                </div>
+
+                <div class="total-question number">
+                    <label for="year">Year</label><br>
+                    <input type="text" name="year"/>
+                </div>
+
+                <div class="total-question number">
+                    <label for="startTime">Starting Time</label>
+                    <input type="time" name="startTime"/>
+                </div>
+
+                <div class="total-question number">
+                    <label for="timeLimit">Give Time Limit</label>
+                    <input placeholder="1:00" type="text" name="timeLimit"/>
+                </div>
+            </div>
+            <div class="button-container">
+                <button type="submit">Generate</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<%- include("../partials/dashboardjs.ejs") %> <%-
+include("../partials/footer.ejs") %>

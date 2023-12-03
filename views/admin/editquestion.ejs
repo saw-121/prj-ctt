@@ -1,0 +1,59 @@
+<%- include("../partials/dashboardheader.ejs") %> <%-
+include("../partials/dashboardcss.ejs") %>
+<%- include("../partials/admin/editquestioncss.ejs") %>
+<%- include("../partials/navbar.ejs") %>
+
+<main class="main">
+  <form class="form-style-9" method="POST" action="/admin/editquestion/<%= question._id %>?_method=PUT" autocomplete="off">
+    <h3 style="text-align: center;">Update Question</h3>
+    <ul>
+      <li>
+        <p>Question</p><br>
+        <textarea
+          name="question"
+          class="field-style field-full align-none textarea-border"
+          placeholder="Enter your question here"
+        ><%= question.question %></textarea>
+      </li>
+      <li>
+        <p>Options</p>
+        <textarea
+          name="option1"
+          class="field-style field-split align-left textarea-border"
+          placeholder="Option1"
+        ><%= question.options[0] %></textarea>
+        <textarea
+          name="option2"
+          class="field-style field-split align-right textarea-border"
+          placeholder="Option2"
+        ><%= question.options[1] %></textarea>
+      </li>
+      <li>
+        <textarea
+          name="option3"
+          class="field-style field-split align-left textarea-border"
+          placeholder="Option3"
+        ><%= question.options[2] %></textarea>
+        <textarea
+          name="option4"
+          class="field-style field-split align-right textarea-border"
+          placeholder="Option4"
+        ><%= question.options[3] %></textarea>
+      </li>
+      <li>
+        <label for="correct">Correct Answer</label>
+        <textarea
+          name="correct"
+          class="field-style field-full align-none textarea-border"
+          placeholder="Correct Answer"
+        ><%= question.correctOption %></textarea>
+      </li>
+      <li>
+        <input type="submit" value="Update" />
+      </li>
+    </ul>
+  </form>
+</main>
+
+<%- include("../partials/dashboardjs.ejs") %> <%-
+include("../partials/footer.ejs") %>

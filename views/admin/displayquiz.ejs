@@ -1,0 +1,40 @@
+<%- include("../partials/dashboardheader.ejs") %> <%-
+include("../partials/dashboardcss.ejs") %> <%-
+include("../partials/admin/displayquizcss.ejs") %> <%-
+include("../partials/navbar.ejs") %>
+<style>
+  .main {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
+  }
+
+  .hello {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    border: 1px solid #000;
+    margin-top: 100px; /* Add margin for spacing between items */
+  }
+</style>
+
+<main class="main">
+  <% questions.map((question) => { %>
+  <div class="hello">
+    <div>
+      <h4>Question: <%= question.question %></h4>
+      <ul>
+        <label for="Options">Options</label>
+        
+        <li><%= question.options[0] %></li>
+        <li><%= question.options[1] %></li>
+        <li><%= question.options[2] %></li>
+        <li><%= question.options[3] %></li>
+      </ul>
+      <h5>Correct option: <%= question.correctOption %></h5>
+    </div>
+  </div>
+  <% }) %>
+</main>
+
+<%- include("../partials/dashboardjs.ejs") %> <%-
+include("../partials/footer.ejs") %>

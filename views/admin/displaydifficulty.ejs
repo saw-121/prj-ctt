@@ -1,0 +1,51 @@
+<%- include("../partials/dashboardheader.ejs") %> <%-
+include("../partials/dashboardcss.ejs") %><%-
+include("../partials/displayquestioncss.ejs") %><%-
+include("../partials/navbar.ejs") %>
+
+<main class="main" >
+    <div class="full-container">
+        <div class="header">
+            <div class="difficulty-container">
+                <div class="easy">
+                    <h1><%= title %></h1>
+                </div>
+            </div>
+        </div>
+        <div class="quiz-section">
+            <% questions.map((question) => { %>
+                <div class="inner-container">
+                    <div class="question-container">
+                        <p>Question</p>
+                        <textarea readonly><%= question.question %></textarea>
+                    </div>
+                    
+                    <div class="option-container">
+                        <div class="first-option-container">
+                            <p>Options</p>
+                            <textarea readonly><%= question.options[0] %></textarea>
+                            <textarea readonly><%= question.options[1] %></textarea>
+                        </div>
+                        <div class="second-option-container">
+                            <textarea readonly><%= question.options[2] %></textarea>
+                            <textarea readonly><%= question.options[3] %></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="last-container">
+                        <div class="correct-answer">
+                            <p>Correct Option</p>
+                            <textarea readonly><%= question.correctOption %></textarea>
+                        </div>
+                        <div class="edit-container">
+                            <a href="/admin/editquestion/<%= question._id %>" class="btn">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</main>
+
+<%- include("../partials/dashboardjs.ejs") %> <%-
+include("../partials/footer.ejs") %>

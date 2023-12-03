@@ -1,0 +1,103 @@
+.navbar {
+  z-index: 1000; /* Ensure the navbar is above other elements */
+}
+
+.main{
+  /* overflow: hidden; */
+  overflow-y: scroll;
+}
+.full-container{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  /* margin-top: ;
+  float: left;
+  width: 33.33%; */
+
+    padding: 20px;
+}
+textarea {
+  padding: 5px;
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  border: 4px double #ccc;
+  border-radius: 4px;
+}
+
+.header{
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  /* text-align: center;
+  margin-top: auto;  */
+}
+
+.header h1{
+  padding: 10px; /* Padding around the content inside the header */
+  text-align: center;
+  margin-top: auto; /* Add margin at the top of the element */
+  /* margin-bottom: 10px; */
+  /* padding: 5px; */
+}
+
+.difficulty-container{
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  text-align: center;
+  justify-content: space-between;
+  /* content: "";
+  display: table;
+  clear: both;
+   */
+}
+
+.difficulty-container a{
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 300;
+  /* padding: 100px; */
+  /* content: "";
+  display: table;
+  clear: both; */
+}
+
+.quiz-section{
+display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Three quizzes in each row */
+  gap: 70px; /* Adjust the gap between quizzes as needed */
+  justify-content: space-around;
+  /* margin-top: 500px; Adjust the top margin as needed */
+  }
+  
+
+.inner-container{
+  display: flex;
+  justify-content: auto;
+  flex-direction: column;
+  /* padding: 100px; */
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+@media only screen and (max-width: 768px) {
+  .question-container,
+  .option-container,
+  .last-container {
+    padding: 15px;
+  }
+}
+/* .question-container,
+.option-container,
+.last-container {
+  padding: 20px;
+  box-sizing: border-box;
+} */

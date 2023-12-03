@@ -1,0 +1,51 @@
+<%- include("../partials/header.ejs") %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="card-container">
+  <div class="top-part">
+    <center><img class="logo_img" src="/img/GCIT_Logo.png"></center>
+  </div>
+  <div class="form-content">
+    <form autocomplete="off" method="POST" action="/register">
+      <% if (typeof error !== "undefined" && error.length > 0) { %>
+      <p style="color: red"><%= error %></p>
+      <% } %> <% if (typeof success !== "undefined" && success.length > 0) { %>
+      <p style="color: green"><%= success %></p>
+      <% } %>
+  
+      <label for="username">Full Name</label>
+      <input
+        type="text"
+        placeholder="Enter your fullname"
+        id="username"
+        name="username"
+      />
+  
+      <label for="cid">CID</label>
+      <input type="number" placeholder="Enter your cid" id="cid" name="cid" />
+  
+      <label for="email">Email</label>
+      <input
+        type="email"
+        placeholder="Enter your email address"
+        id="email"
+        name="email"
+      />
+  
+      <label for="password">Password</label>
+      <input
+        type="password"
+        placeholder="Password"
+        id="password"
+        name="password"
+      />
+  
+      <button type="submit">Register</button>
+      <div class="social">
+          <a href="/">Already have an account</a>
+        </div>
+    </form>
+  </div>
+</div>  
+
+
+<%- include("../partials/footer.ejs") %>

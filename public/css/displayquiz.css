@@ -1,0 +1,87 @@
+/* Container for the quiz */
+.quiz-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color:lightcyan;
+  padding: 20px;
+  width: 400%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Header styles */
+.quiz-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Timer styles */
+.timer {
+  font-weight: bold;
+}
+
+/* Styles for the quiz body */
+.quiz-body {
+  margin-bottom: 20px;
+}
+
+/* Quiz question styles */
+#question-container {
+  text-align: center;
+}
+
+#question {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Quiz options list styles */
+.options-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.options-list li {
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Highlight selected option */
+.options-list li.selected {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* Button container styles */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Common button styles */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+/* Disabled button styles */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Result container styles */
+.result {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}

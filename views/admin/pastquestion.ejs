@@ -1,0 +1,57 @@
+<%- include("../partials/dashboardheader.ejs") %> <%-
+include("../partials/dashboardcss.ejs") %><%-
+include("../partials/displayquestioncss.ejs") %><%-
+include("../partials/navbar.ejs") %>
+
+<main class="main">
+    <div class="full-container">
+        <div class="header">
+            <div class="header-container">
+                <h1>Quiz Question and Answers</h1>
+            </div>
+            <div class="difficulty-container">
+                <div class="easy">
+                    <a class="level" href="#">Easy</a>
+                </div>
+                <div class="medium">
+                    <a class="level" href="#">Medium</a>
+                </div>
+                <div class="hard">
+                    <a class="level" href="#">Hard</a>
+                </div>
+            </div>
+        </div>
+        <div class="quiz-section">
+            <% questions.map((question) => { %>
+                <div class="inner-container">
+                    <div class="question-container">
+                        <input type="text" value="<%= question.question %>" readonly>
+                    </div>
+            
+                    <div class="option-container">
+                        <div class="first-option-container">
+                            <input type="text" value="<%= question.options[0] %>" readonly>
+                            <input type="text" value="<%= question.options[1] %>" readonly>
+                        </div>
+                        <div class="second-option-container">
+                            <input type="text" value="<%= question.options[2] %>" readonly>
+                            <input type="text" value="<%= question.options[3] %>" readonly>
+                        </div>
+                    </div>
+            
+                    <div class="last-container">
+                        <div class="correct-answer">
+                            <input type="text" value="<%= question.correctOption %>" readonly>
+                        </div>
+                        <div class="edit-container">
+                            <a href="/admin/editquestion/<%= question._id %>" class="btn">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</main>
+
+<%- include("../partials/dashboardjs.ejs") %> <%-
+include("../partials/footer.ejs") %>

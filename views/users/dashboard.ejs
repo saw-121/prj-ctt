@@ -1,0 +1,82 @@
+<%- include("../partials/dashboardheader.ejs") %> 
+<%- include("../partials/dashboardcss.ejs") %> 
+<%- include("../partials/userdetailscss.ejs") %> 
+<%- include("../partials/usernavbar.ejs") %>
+
+<main class="main">
+
+  <head>
+    <style>
+      .full-container {
+        margin-top: -100px;
+        margin-left: 300px;
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+      }
+      .header {
+        margin-left: -250px;
+        align-items: center;
+      }
+    </style>
+  </head>
+  
+  <div class="full-container">
+    <div class="header">
+      <div class="header-container">
+        <!-- <h1>Past Question</h1> -->
+      </div>
+      <% if (typeof error !=="undefined" && error.length > 0) { %>
+        <p style="color: red"><%= error %></p>
+        <% } %> 
+        <% if (typeof success !== "undefined" && success.length > 0) { %>
+          <p style="color: green"><%= success %></p>
+        <% } %>
+      <form action="/users/dashboard" method="POST" autocomplete="off">
+        <select name="yearFilter" id="yearFilter">
+          <option value="" disabled selected>Select Year</option>
+          <% year.forEach(function (year) { %>
+            <option value="<%= year %>"><%= year %></option>
+          <% }); %>
+        </select>
+        <button type="submit">Submit</button><br><br>
+      </form>
+    </div>
+    <div class="quiz-section" 
+    style="display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      inline-size: auto;
+      gap: 50px; 
+      margin-left: 50px;">
+      <% questions.map((question) => { %>
+        <div class="inner-container">
+          <div class="question-container">
+            <p>Question</p>
+            <textarea rows="5" cols="100" readonly><%= question.question %></textarea>
+          </div>
+
+          <div class="option-container">
+            <div class="first-option-container">
+              <p>Options</p>
+              <textarea readonly><%= question.options[0] %></textarea>
+              <textarea readonly><%= question.options[1] %></textarea>
+            </div>
+            <div class="second-option-container">
+              <textarea readonly><%= question.options[2] %></textarea>
+              <textarea readonly><%= question.options[3] %></textarea>
+            </div>
+          </div>
+
+          <div class="last-container">
+            <div class="correct-answer">
+              <p>Answer</p>
+              <textarea readonly><%= question.correctOption %></textarea>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</main>
+<%- include("../partials/dashboardjs.ejs") %> 
+<%- include("../partials/footer.ejs") %>

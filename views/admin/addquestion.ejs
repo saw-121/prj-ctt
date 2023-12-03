@@ -1,0 +1,74 @@
+<%- include("../partials/dashboardheader.ejs") %>
+<%- include("../partials/dashboardcss.ejs") %> <%-
+include("../partials/addquestioncss.ejs") %> <%-
+include("../partials/navbar.ejs") %>
+
+<main class="main">
+  <form action="/admin/addquestion" method="POST" autocomplete="off">
+    <div class="quiz-container">
+      <div class="quiz-header-container">
+        <h1 class="quiz-header">Add Quiz Question</h1>
+      </div>
+
+      <% if (typeof error !=="undefined" && error.length > 0) { %>
+      <p style="color: red"><%= error %></p>
+      <% } %> <% if (typeof success !== "undefined" && success.length > 0) { %>
+      <p style="color: green"><%= success %></p>
+      <% } %>
+
+      <div class="question-container">
+        <textarea placeholder="Enter the question here!" name="question" class="question-textarea"></textarea>
+      </div>
+
+      <div class="option-container">
+        <div class="first-option-container">
+          <div class="option1-container">
+            <textarea placeholder="Option 1" name="option1" class="option-textarea"></textarea>
+          </div>
+    
+          <div class="option1-container">
+            <textarea placeholder="Option 2" name="option2" class="option-textarea"></textarea>
+          </div>
+        </div>
+    
+        <div class="second-option-container">
+          <div class="option1-container">
+            <textarea placeholder="Option 3" name="option3" class="option-textarea"></textarea>
+          </div>
+    
+          <div class="option1-container">
+            <textarea placeholder="Option 4" name="option4" class="option-textarea"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="radio-button-container">
+        <div>
+          <input type="radio" id="easy" name="difficulty" value="easy" />
+          <label for="easy">Easy</label>
+        </div>
+
+        <div>
+          <input type="radio" id="medium" name="difficulty" value="medium" />
+          <label for="medium">Medium</label>
+        </div>
+
+        <div>
+          <input type="radio" id="hard" name="difficulty" value="hard" />
+          <label for="hard">Hard</label>
+        </div>
+      </div>
+
+      <div class="correct-option-container">
+        <input type="text" placeholder="correct option" name="correct" />
+      </div>
+
+      <div class="button-container">
+        <button type="submit" class="btn">Add question</button>
+      </div>
+    </div>
+  </form>
+</main>
+
+<%- include("../partials/dashboardjs.ejs") %> <%-
+include("../partials/footer.ejs") %>

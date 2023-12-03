@@ -1,0 +1,61 @@
+<%- include("../partials/dashboardheader.ejs") %> <%-
+include("../partials/dashboardcss.ejs") %> <%-
+include("../partials/userdetailscss.ejs") %> <%-
+include("../partials/navbar.ejs") %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<main class="main">
+  <div class="container-lg">
+    <% if (typeof error !=="undefined" && error.length > 0) { %>
+      <p style="color: red"><%= error %></p>
+      <% } %> <% if (typeof success !== "undefined" && success.length > 0) { %>
+      <p style="color: green"><%= success %></p>
+      <% } %>
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-8">
+              <h2>Result</h2>
+            </div>
+          </div>
+        </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>SINo</th>
+              <th>Full Name</th>
+              <th>CID</th>
+              <th>Email</th>
+              <th>Score</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+           
+            <% results.map((result) => { %>
+              <% var count = 1; %>
+              <tr>
+                <td><%= count++ %></td>
+                <td><%= result.username %></td>
+                <td><%= result.cid %></td>
+                <td><%= result.email %></td>
+                <td><%= result.score %></td>
+                <td>
+                  <a href="/admin/result/<%= result._id %>/delete" class="delete" title="Delete" data-toggle="tooltip"
+                    ><i class="material-icons">&#xE872;</i></a
+                  >
+                </td>
+              </tr>
+            <% }) %>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%- include("../partials/dashboardjs.ejs") %> <%-
+include("../partials/footer.ejs") %>
